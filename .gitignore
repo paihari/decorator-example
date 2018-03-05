@@ -3,3 +3,11 @@ build
 ear/build
 ejb/build
 web/build
+classes
+ejb/decorator.example.log
+ejb/derby.log
+derby.log
+out
+
+
+

@@ -2,10 +2,11 @@ group 'gundi'
 
 apply plugin: 'war'
 
-sourceCompatibility = 1.6
+sourceCompatibility = 1.8
 repositories {
     mavenCentral()
-    maven { url 'https://jitpack.io'}
+    //maven { url 'https://jitpack.io'}
+    maven { url 'https://paihari.github.io/repo/'}
 }
 
 dependencies {

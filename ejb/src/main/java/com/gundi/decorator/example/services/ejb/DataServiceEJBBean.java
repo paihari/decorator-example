@@ -12,7 +12,7 @@ import javax.ejb.*;
  */
 @Stateless(mappedName = "test.DataServiceEJB", name="test.DataServiceEJB")
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
-@Local(DataServiceEJB.class)
+@Remote(DataServiceEJB.class)
 @PermitAll
 public class DataServiceEJBBean extends DataServiceEJBBeanImpl{
 

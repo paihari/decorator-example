@@ -6,14 +6,17 @@ package com.gundi.decorator.example.services.entity;
 
 import com.gundi.common.entity.impl.AuditableEntityBase;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
+@NamedQueries(
+        {
+                @NamedQuery(name="Todo.findAll", query = "select t from Todo t")
+        }
+)
 public class Todo extends AuditableEntityBase implements Serializable{
 
 
@@ -21,10 +24,12 @@ public class Todo extends AuditableEntityBase implements Serializable{
 
     private String summary;
     private String description;
+    private ToDoType toDoType;
 
-    public Todo(String  summary, String description) {
+    public Todo(String  summary, String description, ToDoType toDoType) {
         this.summary = summary;
         this.description = description;
+        this.toDoType = toDoType;
     }
 
     public Todo() {
@@ -56,29 +61,39 @@ public class Todo extends AuditableEntityBase implements Serializable{
         this.description = description;
     }
 
+    public ToDoType getToDoType() {
+        return toDoType;
+    }
+
+    public void setToDoType(ToDoType toDoType) {
+        this.toDoType = toDoType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Todo todo = (Todo) o;
+        return Objects.equals(id, todo.id) &&
+                Objects.equals(summary, todo.summary) &&
+                Objects.equals(description, todo.description) &&
+                toDoType == todo.toDoType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), id, summary, description, toDoType);
+    }
+
     @Override
     public String toString() {
         return "Todo{" +
                 "id=" + id +
                 ", summary='" + summary + '\'' +
                 ", description='" + description + '\'' +
-                '}' + super.toString();
-    }
-
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Todo todo = (Todo) o;
-        return Objects.equals(id, todo.id) &&
-                Objects.equals(summary, todo.summary) &&
-                Objects.equals(description, todo.description);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, summary, description);
+                ", toDoType=" + toDoType +
+                '}';
     }
 }
+

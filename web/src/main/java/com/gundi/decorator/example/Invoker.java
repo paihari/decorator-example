@@ -27,13 +27,14 @@ public class Invoker implements Serializable {
 
     private String message;
 
-    public void setEJB(String name) {
-        if(name.equals("Simple")) {
+    public void invokeSimpleService() {
             message = mySimpleEJB.invokeSimpleService();
-        } else {
-            message = myComplexEJB.invokeComplexService();
-        }
     }
+
+    public void invokeComplexService() {
+            message = myComplexEJB.invokeComplexService();
+    }
+
 
     public String getMessage() {
 

@@ -5,7 +5,6 @@ apply plugin: 'war'
 sourceCompatibility = 1.8
 repositories {
     mavenCentral()
-    //maven { url 'https://jitpack.io'}
     maven { url 'https://paihari.github.io/repo/'}
 }
 
@@ -14,10 +13,6 @@ dependencies {
     compile 'org.glassfish:javax.ejb:3.0.1','org.eclipse.persistence:javax.persistence:2.0.0'
     compile 'org.glassfish:javax.faces:2.1.13'
     compile 'javax.enterprise:cdi-api:2.0'
-
-
-    //compile group: 'javax.enterprise', name: 'cdi-api', version: '1.1.EDR1.2', ext: 'jar'
-    //compile group: 'javax', name: 'javaee-api', version: '6.0', ext: 'jar'
 }
 
 war { 

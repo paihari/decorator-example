@@ -10,7 +10,7 @@ import javax.ejb.EJB;
 /**
  * Created by pai on 13.02.18.
  */
-@TestRuntimeConfig(name="test_simple_decorator", testOnContainer=false)
+@TestRuntimeConfig(name="test_simple_decorator", testOnContainer=true)
 public class MySimpleDecoratorTest extends ResourceDecoratorTestBase{
 
     @EJB(mappedName = "test.MySimpleEJB")

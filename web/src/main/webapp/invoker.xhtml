@@ -19,15 +19,23 @@
             <h:outputLabel value="#{invoker.message}" />
         </h:panelGrid>
     </h:form>
-    <h:form id="greetForm">
+    <h:form id="greetFormSimpleService">
         <h:panelGrid columns="3">
-            <h:outputLabel>Name:</h:outputLabel>
-            <h:inputText value="#{name}" />
-            <h:commandButton id="add" value="Greet"
-                             action="#{invoker.setEJB(name)}">
+            <h:commandButton id="add" value="Invoke Simple Service"
+                             action="#{invoker.invokeSimpleService()}">
             </h:commandButton>
         </h:panelGrid>
     </h:form>
+    <h:form id="greetFormComplexService">
+        <h:panelGrid columns="3">
+
+            <h:commandButton id="add" value="Invoke Complex Service"
+                             action="#{invoker.invokeComplexService()}">
+            </h:commandButton>
+        </h:panelGrid>
+    </h:form>
+
+
 </div>
 
 </body>
